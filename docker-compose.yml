@@ -9,9 +9,9 @@ services:
     env_file: .env
     environment:
       SECRET_KEY: changeme
-      DB_NAME: postgres
-      DB_USER: postgres
-      DB_PASS: postgres
+      DB_NAME:  ${POSTGRES_DB}
+      DB_USER:  ${POSTGRES_USER}
+      DB_PASS: ${POSTGRES_PASSWORD}
     depends_on:
      - postgres
     command: /usr/src/app/start-app.sh
@@ -27,6 +27,6 @@ services:
       #  it is just here as we are staging the database via docker.
       #  in a prod environment this would be done differently (or not in Docker at all).
       #  🌌 these aren't the droids you are looking for 🌌
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
